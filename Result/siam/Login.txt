@@ -1,0 +1,5 @@
+###################### Start run at : 20200725_05_10_45
+1.Load test Information
+- Time to loading page done (ms) : 5923.0
+- Total length of the Pgae Source is  : 60110
+- Total elements is  : 2

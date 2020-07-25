@@ -1,0 +1,12 @@
+###################### Start run at : 20200725_09_06_18
+1.Load test Information
+- Web Tittle : nRetail | New Retail Platform
+- Time to loading page done (ms) : 5233.0
+- Total length of the Pgae Source is  : 20231
+- Total elements is  : 103
++ Total country/Language is  : 2
+              Language :1.   +84
+              Language :2.   +63
+- Default language : +84
+
+2.Testing Language Show 

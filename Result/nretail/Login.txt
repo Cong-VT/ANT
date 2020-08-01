@@ -1,12 +1,29 @@
-###################### Start run at : 20200725_09_06_18
+###################### Start run at : 20200730_10_44_25
+Current URLs is  : http://nretail.vn/auth/login?returnUrl=%2Fauth%2Flogin
+nRetail | New Retail Platform
 1.Load test Information
 - Web Tittle : nRetail | New Retail Platform
-- Time to loading page done (ms) : 5233.0
-- Total length of the Pgae Source is  : 20231
-- Total elements is  : 103
+- Time to loading page done (ms) : 4638.0
+- Total length of the Pgae Source is  : 19557
+- Total elements is  : 98
 + Total country/Language is  : 2
               Language :1.   +84
               Language :2.   +63
-- Default language : +84
+- National Default  : +84
 
 2.Testing Language Show 
+
+Current URLs is  : http://nretail.vn/auth/login?returnUrl=%2Fauth%2Flogin
+nRetail | New Retail Platform
+####### language Show By : +63
+- Title Body : Đăng Nhập
+- User : Tài Khoản
+- User : Mật Khẩu
+- Forgot Pass : Quên Mật Khẩu
+- button Login  : ĐĂNG NHẬP
+- No Acccount  : Không có tài khoản?
+- Register  : ĐĂNG KÝ
+- Register Form - Header  : Đăng Ký
+- Register Form - Phone   : Điện Thoại *
+- Register Form - Back  : QUAY LẠI
+- Register Form - Send OTP  : GỬI MÃ XÁC THỰC

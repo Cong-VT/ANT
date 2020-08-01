@@ -1,10 +1,9 @@
 package com.ant.project.nretail.login;
-import  com.ant.worker.defineElements;
 import android.os.Build;
 
 import androidx.annotation.RequiresApi;
 
-import com.ant.cocoon.HQLogin;
+import com.ant.cocoon.getUrls;
 import com.ant.worker.GMTDateTime;
 import com.ant.worker.timeCount;
 
@@ -19,16 +18,14 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Set;
 
 public class Launch_login {
 
   @RequiresApi(api = Build.VERSION_CODES.O)
   public static  void   main(String [] atr) throws IOException {
 
-    HQLogin login = new HQLogin();
+    getUrls login = new getUrls();
 
     System.setProperty("webdriver.chrome.driver", "WebDriver/chromedriver.exe");
     String filepath=new variable().PathDir;
@@ -42,6 +39,8 @@ public class Launch_login {
 
 
     WebDriver driver = new ChromeDriver();
+    driver.manage().window().maximize();
+
     long stime = System.currentTimeMillis();
 
     try {
@@ -56,6 +55,9 @@ public class Launch_login {
 
     String testFileTitle="###################### Start run at : " + GMTDateTime.DateTime();
         fos.write(testFileTitle.getBytes());
+         String crURL= '\n' + "Current URLs is  : " + driver.getCurrentUrl() + '\n';
+         fos.write(crURL.getBytes());
+         fos.write(driver.getTitle().getBytes());
 
           String TestScenarios_LoadTest ='\n'+ "1.Load test Information" + '\n';
           fos.write(TestScenarios_LoadTest.getBytes());
@@ -93,11 +95,6 @@ public class Launch_login {
               }
              }
           }
-
-
-
-
-
           int xpathCountlanguage = driver.findElements(By.xpath("/html/body/div/div/div/div/div[1]/div/div[1]/div[2]/*")).size();
           String TestScenarios_LoadTest_totalanguage = "+ Total country/Language is  : " + xpathCountlanguage +'\n';
           fos.write(TestScenarios_LoadTest_totalanguage.getBytes());
@@ -113,14 +110,13 @@ public class Launch_login {
                        // Listlanguage[i-1]=element.getText();
                     i++;
                    }
-            String wlangegedeault ="- Default language : " + langegedeault + '\n';
+            String wlangegedeault ="- National Default  : " + langegedeault + '\n';
             fos.write(wlangegedeault.getBytes());
             //national.click();// closed button
-
+           // Testlanguage(driver,fos,langegedeault);
 
       String TestScenarios_GUI_language ='\n'+ "2.Testing Language Show " + '\n';
       fos.write(TestScenarios_GUI_language.getBytes());
-
       ArrayList<String> Listalllanguage = new ArrayList<String>();
       int il=0;
       for(WebElement element:rows )
@@ -131,8 +127,37 @@ public class Launch_login {
       }
 
 
+      driver.navigate().refresh(); // refresh lại lưới
+      //System.out.print('\n'+ "language List size is : " + Listalllanguage.size());
+      for (int ri = Listalllanguage.size()-1;ri>0;ri--)
+      {
+          String crURL1= '\n' + "Current URLs is  : " + driver.getCurrentUrl() + '\n';
+          fos.write(crURL1.getBytes());
+          fos.write(driver.getTitle().getBytes());
+          String sltdlangcode=Listalllanguage.get(ri);
+          System.out.print('\n'+ "language selected is : " + Listalllanguage.get(ri));
+          String nationalxpath1="//*[@id=\"kt_login\"]/div/div[2]/kt-login/div[1]/div/form/div[1]/div/div/dx-validation-group/div[1]/div[2]/div/dx-select-box/div[1]/div/div[2]/div[2]/div/div";
+          WebElement national1=wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(nationalxpath1)));
 
-     // driver.navigate().refresh();
+          national1.click();//Click list
+         //  wait List appear and clickable
+          wait.until((ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div/div/div/div/div[1]/div/div[1]/div[2]"))));
+         WebElement sltdlangua=driver.findElement(By.xpath("/html/body/div/div/div/div/div[1]/div/div[1]/div[2]/div[2]"));
+         sltdlangua.click();
+        Testlanguage(driver,fos,Listalllanguage.get(ri));
+          driver.navigate().refresh();
+
+
+      }
+
+
+
+
+
+
+
+
+
 
 
     }
@@ -159,6 +184,8 @@ private static  void Testlanguage (WebDriver driver ,FileOutputStream fos ,Strin
 
     WebElement btnregiser=driver.findElement(By.xpath("//*[@id=\"kt_login\"]/div/div[2]/kt-login/div[2]/a"));
     btnregiser.click();
+
+
     String registerlangua_register_header ='\n' + "- Register Form - Header  : " +  driver.findElement(By.xpath("//*[@id=\"kt_login\"]/div/div[2]/kt-register/div/div/div[1]")).getText();
     fos.write(registerlangua_register_header.getBytes());
     String registerlangua_register_phone ='\n' + "- Register Form - Phone   : " +  driver.findElement(By.xpath("//*[@id=\"kt_login\"]/div/div[2]/kt-register/div/div/dx-validation-group/div/div[1]")).getText();
@@ -167,6 +194,7 @@ private static  void Testlanguage (WebDriver driver ,FileOutputStream fos ,Strin
     fos.write(registerlangua_register_back.getBytes());
     String registerlangua_register_send ='\n' + "- Register Form - Send OTP  : " +  driver.findElement(By.xpath("//*[@id=\"kt_login\"]/div/div[2]/kt-register/div/div/div[2]/button[2]")).getText();
     fos.write(registerlangua_register_send.getBytes());
+
 
 
 }

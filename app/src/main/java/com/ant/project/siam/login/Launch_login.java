@@ -3,18 +3,13 @@ import android.os.Build;
 
 import androidx.annotation.RequiresApi;
 
-import com.ant.cocoon.HQLogin;
+import com.ant.cocoon.getUrls;
 import com.ant.worker.*;
 import com.ant.worker.GMTDateTime;
-import com.ant.worker.getLogin;
-import com.ant.worker.fileUltility;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -25,7 +20,7 @@ public class Launch_login {
   @RequiresApi(api = Build.VERSION_CODES.O)
   public static  void   main(String [] atr) throws IOException {
 
-    HQLogin login = new HQLogin();
+    getUrls login = new getUrls();
     System.setProperty("webdriver.chrome.driver", "WebDriver/chromedriver.exe");
     String filepath=new aa_variable().PathDir;
     File file=new File(filepath);

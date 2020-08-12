@@ -1,5 +1,6 @@
 package com.ant.project.perfetti.run;
 import com.ant.cocoon.ResetScreentoCreate;
+import com.ant.cocoon.SQL_JDBC;
 import com.ant.cocoon.SaveData;
 import  com.ant.project.perfetti.webElementsDefine.defineXpathlogin;
 
@@ -25,12 +26,17 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.sql.Connection;
 import java.sql.Driver;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class launcher {
   @RequiresApi(api = Build.VERSION_CODES.O)
 
-  public static  void   main(String [] atr) throws IOException, InterruptedException {
+  public static  void   main(String [] atr) throws IOException, InterruptedException, SQLException, ClassNotFoundException {
+
+   /*
     getUrls login = new getUrls();
     defineXpathlogin Xpathlogin=new defineXpathlogin();
     System.setProperty("webdriver.chrome.driver", "WebDriver/chromedriver.exe");
@@ -74,6 +80,14 @@ public class launcher {
     IN10100_create.IN10100(driver,"871111",8,"R");
     SaveData IN10100Save=new SaveData();
     IN10100Save.IN10100(driver,"Cập Nhật Dữ Liệu","Xử lí hoàn tất","OK");
+
+    */
+    SQL_JDBC conn=new SQL_JDBC();
+    Connection server= conn.sqlconn("TRUONGSAD","eBiz4DCloudPVNApp_Test","sa","P@ssw0rd","");
+
+    server.createStatement();
+    ResultSet sqlResult=new SQL_JDBC().sqlQuery((Connection) conn,"select top * from AR_customer");
+    System.out.print("sql data "  + sqlResult);
 
 
 

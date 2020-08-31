@@ -14,6 +14,11 @@ public class ResetScreentoCreate {
            clearbtn.click();
            wait.until(ExpectedConditions.invisibilityOfElementWithText(By.xpath("//*[contains(@class,'x-mask-msg-text')]"),"Please wait..."));
        }
+        if (ScreenNbr.equals("IN10200")) {
+            WebElement clearbtn = driver.findElement(By.xpath("//*[contains(@id, 'BatNbr-triggerWrap')]/tbody/tr/td[2]"));
+            clearbtn.click();
+            wait.until(ExpectedConditions.invisibilityOfElementWithText(By.xpath("//*[contains(@class,'x-mask-msg-text')]"),"Please wait..."));
+        }
 
 
     }

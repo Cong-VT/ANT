@@ -62,9 +62,11 @@ public class CreateBatNbr {
         InvtID_1_Qtysend.sendKeys(String.valueOf(Qty));
 
         String col_xpathLineAmt="//*[contains(@id, 'grdTrans-body')]/div/table/tbody/tr/td[8]";
-        WebElement  InvtID_1_LineAmt =driver.findElement(By.xpath(col_xpathLineAmt));
+         WebElement  InvtID_1_LineAmt =driver.findElement(By.xpath(col_xpathLineAmt));
         InvtID_1_LineAmt.click();
        // wait.until(ExpectedConditions.invisibilityOfElementWithText(By.xpath("//*[contains(@class,'x-mask-msg-text')]"),"Loading..."));
+
+
 
 
 

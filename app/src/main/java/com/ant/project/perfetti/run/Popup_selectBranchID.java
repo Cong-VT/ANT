@@ -9,13 +9,17 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.sql.Driver;
 
 public class Popup_selectBranchID {
-    public  void getbranchID(WebDriver driver ,String screenNbr,String xpathDone) throws InterruptedException {
+    public  void getbranchID(WebDriver driver ,String screenNbr,String Territory,String BranchID) throws InterruptedException {
 
         driver.navigate().to(screenNbr);
 
         System.out.print("Open screen : " + screenNbr +'\n');
 
         WebDriverWait wait = new WebDriverWait(driver, 10);
+
+        String BranchIDslt="//td[contains(text(),'"+ BranchID+"')]";
+        //td[contains(text(),'HOABTAN')]
+        String Territoryslt="//td[contains(text(),'"+ Territory+"')]";
 
         WebElement IN10100_popupbranch=driver.findElement(By.xpath("//*[contains(@id, 'winPopup_header-targetEl')]"));
         IN10100_popupbranch.click();
@@ -27,7 +31,7 @@ public class Popup_selectBranchID {
         Thread.sleep(500);
         teritory.click();
         Thread.sleep(500);
-        WebElement slt_terri=driver.findElement(By.xpath("//td[contains(text(),'HO CHI MINH')]"));
+        WebElement slt_terri=driver.findElement(By.xpath(Territoryslt));
         slt_terri.click();
         Thread.sleep(500);
         teritory.click();
@@ -40,12 +44,14 @@ public class Popup_selectBranchID {
         Thread.sleep(500);
         branchlist.click();
         Thread.sleep(500);
-        WebElement slt_branch=wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//td[contains(text(),'HOABTAN')]")));
+        WebElement slt_branch=wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(BranchIDslt)));
         slt_branch.click();
         Thread.sleep(500);
 
         WebElement OK=driver.findElement(By.xpath("//*[contains(@id, 'btnPopupOk-btnWrap')]"));
         OK.click();
+
+        /*
         long time1=System.currentTimeMillis();
         try {
 
@@ -60,6 +66,7 @@ public class Popup_selectBranchID {
         long time2=System.currentTimeMillis();
         long timeload=time2-time1;
         System.out.print("Load done total time : " + timeload + '\n');
+        */
     }
 
 

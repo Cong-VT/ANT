@@ -29,6 +29,11 @@ dependencies {
     implementation files('..\\antLibs\\jxl-2.6.jar')
     implementation files('..\\antLibs\\selenium-server-standalone-3.141.59.jar')
     implementation files('..\\antLibs\\sqljdbc42.jar')
+    implementation files('..\\antLibs\\poi-examples-4.1.2.jar')
+    implementation files('..\\antLibs\\poi-excelant-4.1.2.jar')
+    implementation files('..\\antLibs\\poi-ooxml-4.1.2.jar')
+    implementation files('..\\antLibs\\poi-ooxml-schemas-4.1.2.jar')
+    implementation files('..\\antLibs\\poi-scratchpad-4.1.2.jar')
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'

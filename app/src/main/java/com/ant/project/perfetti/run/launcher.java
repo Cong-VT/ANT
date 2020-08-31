@@ -1,7 +1,12 @@
 package com.ant.project.perfetti.run;
 import com.ant.cocoon.ClosedMessage;
 import com.ant.cocoon.ResetScreentoCreate;
+<<<<<<< HEAD
 import com.ant.cocoon.ribbon_Save;
+=======
+import com.ant.cocoon.SQL_JDBC;
+import com.ant.cocoon.SaveData;
+>>>>>>> ca7caa2eac707f5a5cee7585b10a8004d1c39f9d
 import  com.ant.project.perfetti.webElementsDefine.defineXpathlogin;
 
 import android.os.Build;
@@ -20,11 +25,20 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+<<<<<<< HEAD
+=======
+import java.sql.Connection;
+import java.sql.Driver;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+>>>>>>> ca7caa2eac707f5a5cee7585b10a8004d1c39f9d
 
 public class launcher {
   @RequiresApi(api = Build.VERSION_CODES.O)
 
-  public static  void   main(String [] atr) throws IOException, InterruptedException {
+  public static  void   main(String [] atr) throws IOException, InterruptedException, SQLException, ClassNotFoundException {
+
+   /*
     getUrls login = new getUrls();
     defineXpathlogin Xpathlogin=new defineXpathlogin();
     System.setProperty("webdriver.chrome.driver", "WebDriver/chromedriver.exe");
@@ -99,6 +113,14 @@ public class launcher {
                 ClosedMessage IN10200_processdone=new ClosedMessage();
                 IN10200_processdone.msgCode_64(driver,"IN10200");
 
+
+    */
+    SQL_JDBC conn=new SQL_JDBC();
+    Connection server= conn.sqlconn("TRUONGSAD","eBiz4DCloudPVNApp_Test","sa","P@ssw0rd","");
+
+    server.createStatement();
+    ResultSet sqlResult=new SQL_JDBC().sqlQuery((Connection) conn,"select top * from AR_customer");
+    System.out.print("sql data "  + sqlResult);
 
 
 
